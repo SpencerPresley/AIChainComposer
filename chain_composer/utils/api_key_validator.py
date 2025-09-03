@@ -179,9 +179,9 @@ class APIKeyValidator:
     ) -> ChatOpenAI:
         """Get an OpenAI LLM instance."""
         if model is None:
-            return ChatOpenAI(api_key=api_key)
+            return ChatOpenAI(api_key=api_key, temperature=1.0)
         else:
-            return ChatOpenAI(api_key=api_key, model=model)
+            return ChatOpenAI(api_key=api_key, model=model, temperature=1.0)
     
     def _get_anthropic_llm(
         self, 
@@ -190,9 +190,9 @@ class APIKeyValidator:
     ) -> ChatAnthropic:
         """Get an Anthropic LLM instance."""
         if model is None:
-            return ChatAnthropic(api_key=api_key)
+            return ChatAnthropic(api_key=api_key, temperature=1.0)
         else:
-            return ChatAnthropic(api_key=api_key, model=model)
+            return ChatAnthropic(api_key=api_key, model=model, temperature=1.0)
     
     def _get_google_llm(
         self, 

@@ -83,7 +83,7 @@ class ChainComposer:
         *,
         model: str,
         api_key: str,
-        temperature: float = 0.7,
+        temperature: float = 1.0,
         preprocessor: Callable[[Dict[str, Any]], Dict[str, Any]] | None = None,
         postprocessor: Callable[[Any], Any] | None = None,
         enable_logging: bool | None = False,
