@@ -1,5 +1,5 @@
 [project]
-name = "ChainComposer"
+name = "chaincomposer"
 version = "0.2.0"
 description = "A tool to quickly and easily build complex LLM chains. Chain Composer is a sophisticated wrapper around core LangChain functionality allowing for quickly building complex multi-layer LLM chains."
 readme = "README.md"
@@ -40,7 +40,7 @@ packages = ["src/chaincomposer"]
 [project.urls]
 "Homepage" = "https://github.com/SpencerPresley/AIChainComposer"
 "Bug Tracker" = "https://github.com/SpencerPresley/AIChainComposer/issues"
-"PyPI" = "https://pypi.org/project/ChainComposer/"
+"PyPI" = "https://pypi.org/project/chaincomposer/"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
