@@ -1,11 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "ChainComposer"
-version = "0.2.0"
+version = "0.1.8"
 description = "A tool to quickly and easily build complex LLM chains. Chain Composer is a sophisticated wrapper around core LangChain functionality allowing for quickly building complex multi-layer LLM chains."
-readme = "README.md"
 authors = [
     { name = "Spencer Presley", email = "spencerpresley96@gmail.com" }
 ]
+readme = "README.md"
 requires-python = ">=3.9,<4.0"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -13,46 +17,58 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "langchain>=0.3.27",
-    "langchain-anthropic>=0.3.19",
-    "langchain-community>=0.3.29",
-    "langchain-core>=0.3.75",
-    "langchain-google-genai>=2.1.10",
-    "langchain-mistralai>=0.2.11",
-    "langchain-ollama>=0.3.7",
-    "langchain-openai>=0.3.32",
-    "pydantic>=2.11.7",
+    "langchain==0.3.7",
+    "langchain-anthropic==0.3.0",
+    "langchain-core==0.3.19",
+    "langchain-google-genai==2.0.5",
+    "langchain-openai==0.2.9",
+    "openai==1.58.1",
+    "pydantic==2.9.2",
+    "platformdirs==4.3.6",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/chaincomposer"]
-
-# TODO: Add back optional-dependencies when ready to test and pin versions
-# [project.optional-dependencies]
-# test = ["pytest", "pytest-cov", ...]  
-# dev = ["black", "mypy", ...]
-# docs = ["sphinx", ...]
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4.3",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.12.0",
+    "pytest-asyncio>=0.21.1",
+    "python-dotenv>=1.0.0",
+]
+dev = [
+    "black>=23.11.0",
+    "mypy>=1.7.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+]
+docs = [
+    "sphinx",
+    "piccolo-theme",
+    "sphinx-autodoc-typehints",
+    "pydata-sphinx-theme",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/SpencerPresley/AIChainComposer"
 "Bug Tracker" = "https://github.com/SpencerPresley/AIChainComposer/issues"
 "PyPI" = "https://pypi.org/project/ChainComposer/"
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["chain_composer*"]
+namespaces = true
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-addopts = "-ra -q --cov=chaincomposer"
+addopts = "-ra -q --cov=chain_composer"
 markers = [
     "unit: mark test as a unit test",
     "integration: mark test as an integration test",
 ]
 
 [tool.coverage.run]
-source = ["chaincomposer"]
+source = ["chain_composer"]
 omit = ["tests/*"]
 
 [tool.coverage.report]

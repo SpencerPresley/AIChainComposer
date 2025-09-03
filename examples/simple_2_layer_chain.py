@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import json
 from pydantic import BaseModel
-from chain_composer import ChainComposer
+from chaincomposer import ChainComposer
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -51,7 +51,7 @@ First Derivative:
 
 def with_json_parser():
     cp = ChainComposer(
-        model="gpt-4o-mini",
+        model="gpt-5-nano",
         api_key=api_key,
     )
     
@@ -71,7 +71,7 @@ def with_json_parser():
 
 def with_pydantic_parser():
     cp = ChainComposer(
-        model="gpt-4o-mini",
+        model="gpt-5-nano",
         api_key=api_key,
     )
     
